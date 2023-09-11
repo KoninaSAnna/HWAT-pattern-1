@@ -9,7 +9,7 @@ import java.util.Locale;
 import java.util.Random;
 
 public class DataGenerator {
-    private DataGenerator(){
+    private DataGenerator() {
     }
 
     public static String generateDate(int addDays, String pattern) {
@@ -17,16 +17,16 @@ public class DataGenerator {
     }
 
     public static String generateCity() {
-        var cities = new String[] { "Воронеж", "Пермь", "Киров", "Москва", "Калуга", "Вологда", "Пенза"};
+        var cities = new String[]{"Воронеж", "Пермь", "Киров", "Москва", "Калуга", "Вологда", "Пенза"};
         return cities[new Random().nextInt(cities.length)];
     }
 
-    public static String generateName(String locale){
+    public static String generateName(String locale) {
         var faker = new Faker(new Locale(locale));
         return faker.name().lastName() + " " + faker.name().firstName();
     }
 
-    public static String generatePhone(String locale){
+    public static String generatePhone(String locale) {
         var faker = new Faker(new Locale(locale));
         return faker.phoneNumber().phoneNumber();
     }

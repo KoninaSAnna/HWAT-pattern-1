@@ -1,4 +1,5 @@
 package test;
+
 import com.codeborne.selenide.Condition;
 import data.DataGenerator;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,12 +24,12 @@ public class CardTest {
 
     @Test
     @DisplayName("Meeting")
-    void meeting(){
+    void meeting() {
         DataGenerator.UserInfo validUser = DataGenerator.Registration.generateUser("ru");
         int daysToAddForFirstMeeting = 15;
-        String firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting,"dd.MM.yyyy");
-        int  daysToAddForSecondMeeting = 23;
-        String secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting,"dd.MM.yyyy");
+        String firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting, "dd.MM.yyyy");
+        int daysToAddForSecondMeeting = 23;
+        String secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting, "dd.MM.yyyy");
         $("[data-test-id='city'] input").setValue(validUser.getCity());
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
         $("[data-test-id='date'] input").setValue(firstMeetingDate);
