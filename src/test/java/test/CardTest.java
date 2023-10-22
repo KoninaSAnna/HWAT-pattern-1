@@ -17,6 +17,16 @@ import static com.codeborne.selenide.Selenide.open;
 
 
 public class CardTest {
+
+      @BeforeAll
+    static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+    }
     @BeforeEach
     void setup() {
         open("http://localhost:9999");
